@@ -1,0 +1,95 @@
+<html>
+
+    <body>
+        <h1>Customer Input</h1>
+        <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+            <div class='form-group' [ngClass]="{'has-error':!customerForm.controls['custId'].hasError('required').valid && customerForm.controls['custId'].touched}">
+        Customer Id:
+        <input type="text" class="form-control" placeholder='1234' [formControl]="customerForm.controls['custId']" #custId />
+          <span class = 'red alert'*ngIf="customerForm.controls['custId'].hasError('required')&& customerForm.controls['custId'].touched">CUSTOMER ID REQUIRED</span>
+          </div>
+          <!--<div >
+           <label> Transfer Type</label>
+           
+              <label>
+               <input type ="radio" name='transfer type' value='wire'[formControl]="customerForm.controls['transfer-type']">
+                wire
+               </label>
+              </div>
+               <div>
+                 <label>
+               <input type ='radio' name='fund usage' value='ACH'[formControl]="customerForm.controls['transfer-type']">
+               ACH
+               </label>
+               <label>
+                <input type ='radio' name='fund usage' value='bitcoin'[formControl]="customerForm.controls['transfer-type']">
+                Bitcoin
+               </label>
+                 <label>
+                <input type ='radio' name='fund usage' value='check'[formControl]="customerForm.controls['transfer-type']">
+                Check
+               </label>
+
+       </div>-->
+        
+      
+       <br/>
+        <div class='form-group' [ngClass]="{'has-error':!customerForm.controls['amount'].hasError('required').valid && customerForm.controls['amount'].touched}">
+        Amount:
+        <input type="text" class="form-control" placeholder='0' [formControl]="customerForm.controls['amount']" #amount />
+        <br />
+        <span class = 'red alert'*ngIf="customerForm.controls['amount'].hasError('required')&& customerForm.controls['amount'].touched">AMOUNT REQUIRED</span>
+       </div>    
+     
+     <div>
+           <label> Fund Usage</label>
+           
+              <label>
+               <input type ="radio" name='fund usage' value='match-current'>
+                Match Current
+               </label>
+              
+                 <label>
+               <input type ='radio' name='fund usage' value='match-target'>
+                Match Target
+               </label>
+               
+
+               <label>
+                <input type ='radio' name='fund usage' value='cash'>
+                Cash
+               </label>
+               </div>
+
+       
+        <br />
+        <button class="btn btn-default" [disabled]="customerForm.invalid">Submit</button>
+        <br />
+     
+        </form>
+
+             
+      <div *ngIf='submitted'>
+        <div><p>Your customer id : {{custId.value}}<br/>
+             Amount entered  :{{amount.value}}<br/></p>
+             <table class='client-data' value='Client Data'>
+               <thead>
+                 <tr>
+               <th>Customer</th>
+                <th>Account</th>
+                </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                <td id='customerID'>{{custId.value}}</td>
+                <td id='accountcombo'>xyz</td>    
+                </tr> 
+                </tbody>
+             </table>
+             
+          </div>
+        </div>
+      
+    </body>
+</html>
+ 
