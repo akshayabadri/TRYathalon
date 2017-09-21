@@ -1,6 +1,11 @@
-# TRYathalon
-git repo for the tryathalon
+# Angular/TypeScript Forms
 
-Try to do something good with this repo , don't waste it.
-UI , Services and DB 
-Upload using docker onto the cloud.
+This code sample demonstrates how Angular template-driven forms and 
+reactive forms can be created and used.
+
+## Running the Application
+
+1. Run `npm install` to install app dependencies
+
+1. Run `npm start` to start the server and launch the app
+
